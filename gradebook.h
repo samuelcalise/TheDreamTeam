@@ -11,7 +11,7 @@
 
 */
 
-class gradebook{
+class Gradebook{
 
     private:
 
@@ -26,6 +26,15 @@ class gradebook{
             -> PROJ2-pair <string, int> == Name, Grade
             -> Exam-pair <string, int> == Name, Grade
     */
+        std::vector<std::string> LAB_names;
+        std::vector<double> LAB_grades;
+        std::vector<std::string> ASSIGNMENT_names;
+        std::vector<double> ASSIGNMENT_grades;
+        std::pair<std::string, double> PROJ1;
+        std::pair<std::string, double> PROJ2;
+        std::pair<std::string, double> EXAM;
+        
+        bool valid_num(int num);
 
     public:
 
@@ -84,6 +93,12 @@ class gradebook{
         
     
     */
+        Gradebook();
+        Gradebook(int data);
+        Gradebook(std::vector<int> vec);
+        Gradebook(std::pair<std::string, int>);
+
+        void readFile(std::string file_name);
    
 
 };
