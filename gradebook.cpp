@@ -23,7 +23,7 @@ Gradebook::Gradebook(std::pair<std::string, int>){ //pair constructor
 
 }
 
-bool Gradebook::valid_num(int num){
+bool Gradebook::valid_num(double num){
     if(num > 100 || num < 0){
         return false;
     }
@@ -34,7 +34,7 @@ void Gradebook::readFile(std::string file_name){
     std::ifstream file(file_name);
     std::string line;
 
-    int num;
+    double num;
     int invalid_nums = 0;
 
     while(std::getline(file, line)){
@@ -51,7 +51,7 @@ void Gradebook::readFile(std::string file_name){
         }
         else if(vec_name == "LAB_Grade"){
             while(std::getline(s_stream, token, '|')){
-                num = std::stoi(token);
+                num = std::stod(token);
                 if(valid_num(num)){
                     this->LAB_grades.push_back(num);
                 }
@@ -67,7 +67,7 @@ void Gradebook::readFile(std::string file_name){
         }
         else if(vec_name == "ASSIGNMENT_Grade"){
             while(std::getline(s_stream, token, '|')){
-                num = std::stoi(token);
+                num = std::stod(token);
                 if(valid_num(num)){
                     this->ASSIGNMENT_grades.push_back(num);
                 }
@@ -79,7 +79,7 @@ void Gradebook::readFile(std::string file_name){
         else if(vec_name == "Project1"){
             PROJ1.first = vec_name;
             while(std::getline(s_stream, token, '|')){
-                num = std::stoi(token);
+                num = std::stod(token);
                 if(valid_num(num)){
                     this->PROJ1.second = num;
                 }
@@ -91,7 +91,7 @@ void Gradebook::readFile(std::string file_name){
         else if(vec_name == "Project2"){
             PROJ2.first = vec_name;
             while(std::getline(s_stream, token, '|')){
-                num = std::stoi(token);
+                num = std::stod(token);
                 if(valid_num(num)){
                     this->PROJ2.second = num;
                 }
@@ -104,7 +104,7 @@ void Gradebook::readFile(std::string file_name){
         else if(vec_name == "Final"){
             EXAM.first = vec_name;
             while(std::getline(s_stream, token, '|')){
-                num = std::stoi(token);
+                num = std::stod(token);
                 if(valid_num(num)){
                     this->EXAM.second = num;
                 }

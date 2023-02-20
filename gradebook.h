@@ -33,8 +33,8 @@ class Gradebook{
         std::pair<std::string, double> PROJ1;
         std::pair<std::string, double> PROJ2;
         std::pair<std::string, double> EXAM;
-        
-        bool valid_num(int num);
+
+        bool valid_num(double num);
 
     public:
 
