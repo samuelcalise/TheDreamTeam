@@ -34,7 +34,17 @@ void showMenu(){
         std::cout << "\t" << "To view only overall grades: 'Overall'" << "\n";
 }
 
+void check_file_name(std::string* file_name){
+    std::ifstream file;
 
+    file.open(*file_name);
+
+    while(!file){
+        std::cout << "File does not exist. Please enter the correct name: ";
+        std::cin >> (*file_name);
+        file.open(*file_name);
+    }
+}
 
 int main(int argc, char* argv[]){
     
